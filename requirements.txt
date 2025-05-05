@@ -1,0 +1,6 @@
+bokeh
+paho-mqtt
+tensorflow
+scikit-learn
+pandas
+numpy
