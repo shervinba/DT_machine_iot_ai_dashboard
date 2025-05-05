@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: bokeh-dashboard
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: bokeh serve dashboard.py --port 10000 --allow-websocket-origin=dt-machine-iot-ai-dashboard.onrender.com
+    envVars:
+      - key: PORT
+        value: 10000
+
+  - type: worker
+    name: mqtt-simulator
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python mqtt_simulator.py
